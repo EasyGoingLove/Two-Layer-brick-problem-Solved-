@@ -194,7 +194,7 @@ manualBtn.addEventListener('click', () =>{
     const c = document.getElementById("myCanvas");
     const ctx = c.getContext("2d");
     ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillRect(0, 0, c.width, c.height);
     let x=70;
     let xNum= 30;
     
