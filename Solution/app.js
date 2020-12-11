@@ -1,9 +1,13 @@
-let inputBoxes = 1;
+let inputBoxes = 1; // global varibale for the total number of bricks(inputBoxes created)
+
+//The first Enter button for the N and M inputs
 const mainBtn = document.querySelector('.mainBtn');
       mainBtn.addEventListener('click', () =>{
         choice();
       },{once : true});
 
+
+      //dynamically created buttons
 const choice = () => {
 
     const divBox = document.querySelector('.choiceBox');
@@ -39,7 +43,7 @@ const choice = () => {
     }, {once : true});
 }
 
-
+// dynamically created input form
 const createTable = () => {
        const table = document.getElementById('table');
        const value_N = document.getElementById('N').value;
@@ -82,7 +86,7 @@ const createTable = () => {
     
   }
 
-
+//logic behind the dynamically created input field when the user writes
 const inputText = () => {
     table.onkeyup = (e) =>{
 
@@ -110,7 +114,7 @@ const inputText = () => {
         }
     } 
 }
-
+//canvas draw for automated button - using basic counters
 const autodrawBricks = () => {
     const c = document.getElementById("myCanvas");
     const ctx = c.getContext("2d");
@@ -184,7 +188,7 @@ const autodrawBricks = () => {
 
 
 }
-
+//canvas draw for manual button - using basic counters
 const manualBtn = document.querySelector('.manualBtn');
 manualBtn.addEventListener('click', () =>{
 
@@ -265,7 +269,7 @@ manualBtn.addEventListener('click', () =>{
 
 
 
-
+//refresh button
 const mybutton = document.getElementById("myBtn");
 window.onscroll = function() {scrollFunction()};
 
