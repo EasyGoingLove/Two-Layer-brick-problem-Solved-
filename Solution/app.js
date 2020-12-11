@@ -13,6 +13,9 @@ const choice = () => {
     buttonAuto.innerHTML = 'Automated Input';
     buttonManual.innerHTML = 'Manual Input';
 
+    buttonAuto.className = "btnAut"; 
+    buttonManual.className = "btnMan"; 
+
     divBox.appendChild(buttonAuto); 
     divBox.appendChild(buttonManual); 
 
@@ -30,6 +33,7 @@ const choice = () => {
             }
             else{
                 alert('The Input you have entered is not Valid.');
+                window.location.reload();
             }
       
     }, {once : true});
@@ -73,6 +77,7 @@ const createTable = () => {
      console.log(value_N , value_M);
     }else {
         alert('The Input you have entered is not Valid.');
+        window.location.reload();
     }
     
   }
@@ -109,6 +114,8 @@ const inputText = () => {
 const autodrawBricks = () => {
     const c = document.getElementById("myCanvas");
     const ctx = c.getContext("2d");
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, c.width, c.height);
     let x=70;
     let xNum= 30;
     let areaBlocks = 0 ;
@@ -121,6 +128,7 @@ const autodrawBricks = () => {
         ctx.stroke();
 
         ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
         ctx.fillText(areaBlocks +1, xNum+50, 55);
 
         ctx.font = "30px Arial";
@@ -176,6 +184,85 @@ const autodrawBricks = () => {
 
 
 }
+
+const manualBtn = document.querySelector('.manualBtn');
+manualBtn.addEventListener('click', () =>{
+
+    const manualInputs = document.querySelectorAll('input');
+    console.log(manualInputs[3].value);
+
+    const c = document.getElementById("myCanvas");
+    const ctx = c.getContext("2d");
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    let x=70;
+    let xNum= 30;
+    
+
+    for (let i = 2; i <= (inputBoxes/4)+1; i++) {
+        ctx.beginPath();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "red";
+        ctx.rect(x, 20, 100, 50);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "black";
+        ctx.fillText(manualInputs[i].value.charAt(0), xNum+50, 55);
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i].value.charAt(0), xNum+100, 55);
+
+        ctx.beginPath();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "red";
+        ctx.rect(x-55, 20, 50, 100);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+1].value.charAt(0), xNum, 50);
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+1].value.charAt(0), xNum, 110);
+
+        ctx.beginPath();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "green";
+        ctx.rect(x, 70, 100, 50);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+2].value.charAt(0), xNum+50, 110);
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+2].value.charAt(0), xNum+100, 110);
+    
+        ctx.beginPath();
+        ctx.lineWidth = "3";
+        ctx.strokeStyle = "green";
+        ctx.rect(x+105, 20, 50, 100);
+        ctx.stroke();
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+3].value.charAt(0), xNum+160, 50);
+
+        ctx.font = "30px Arial";
+        ctx.fillText(manualInputs[i+3].value.charAt(0), xNum+160, 110);
+
+        x+=215;
+        xNum+=215;
+        
+    }
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "red";
+    ctx.fillText("Layer One", 100, 150);
+
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "green";
+    ctx.fillText("Layer Two", 400, 150);
+})
+
+
 
 
 
